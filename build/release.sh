@@ -14,7 +14,7 @@ then
   # build
   VERSION=$VERSION npm run dist
   echo "Replacing require with @dextop..."
-  node .build/replace-require.js
+  node ./build/replace-require.js
 
   # publish theme
   echo "Releasing theme-chalk $VERSION ..."
