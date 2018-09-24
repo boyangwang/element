@@ -1,6 +1,6 @@
 {
   "name": "@dextop/element-ui",
-  "version": "2.4.12",
+  "version": "2.4.14",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-ui.common.js",
   "files": [
