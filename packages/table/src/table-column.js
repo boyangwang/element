@@ -323,6 +323,17 @@ export default {
         ? <div class="cell el-tooltip" style={ {width: (data.column.realWidth || data.column.width) - 1 + 'px'} }>{ renderCell(h, data) }</div>
         : <div class="cell">{ renderCell(h, data) }</div>;
     };
+    const owner = this.owner;
+    const parent = this.columnOrTableParent;
+    let columnIndex;
+
+    if (!this.isSubColumn) {
+      columnIndex = [].indexOf.call(parent.$refs.hiddenColumns.children, this.$el);
+    } else {
+      columnIndex = [].indexOf.call(parent.$el.children, this.$el);
+    }
+
+    owner.store.commit('insertColumn', this.columnConfig, columnIndex, this.isSubColumn ? parent.columnConfig : null);
   },
 
   destroyed() {
@@ -431,16 +442,6 @@ export default {
   },
 
   mounted() {
-    const owner = this.owner;
-    const parent = this.columnOrTableParent;
-    let columnIndex;
 
-    if (!this.isSubColumn) {
-      columnIndex = [].indexOf.call(parent.$refs.hiddenColumns.children, this.$el);
-    } else {
-      columnIndex = [].indexOf.call(parent.$el.children, this.$el);
-    }
-
-    owner.store.commit('insertColumn', this.columnConfig, columnIndex, this.isSubColumn ? parent.columnConfig : null);
   }
 };
