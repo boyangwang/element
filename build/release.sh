@@ -1,5 +1,4 @@
 git checkout master
-git merge dev
 
 #!/usr/bin/env sh
 set -e
@@ -16,7 +15,7 @@ then
   VERSION=$VERSION npm run dist
   echo "Replacing require with @dextop..."
   node .build/replace-require.js
-  
+
   # publish theme
   echo "Releasing theme-chalk $VERSION ..."
   cd packages/theme-chalk
