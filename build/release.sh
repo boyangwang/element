@@ -34,7 +34,7 @@ then
   npm version $VERSION --message "[release] $VERSION"
 
   # publish
-  git push origin
+  git push origin master
 
   if [[ $VERSION =~ "beta" ]]
   then
