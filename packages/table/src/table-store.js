@@ -186,8 +186,9 @@ TableStore.prototype.mutations = {
       // clear the old rows
       this.states.expandRows = [];
     }
-
-    Vue.nextTick(() => this.table.updateScrollY());
+    if (this.table.$ready) {
+      Vue.nextTick(() => this.table.updateScrollY());
+    }
   },
 
   changeSortCondition(states, options) {
@@ -212,7 +213,9 @@ TableStore.prototype.mutations = {
       });
     }
 
-    Vue.nextTick(() => this.table.updateScrollY());
+    if (this.table.$ready) {
+      Vue.nextTick(() => this.table.updateScrollY());
+    }
   },
 
   sort(states, options) {
@@ -271,7 +274,9 @@ TableStore.prototype.mutations = {
       this.table.$emit('filter-change', filters);
     }
 
-    Vue.nextTick(() => this.table.updateScrollY());
+    if (this.table.$ready) {
+      Vue.nextTick(() => this.table.updateScrollY());
+    }
   },
 
   insertColumn(states, column, index, parent) {

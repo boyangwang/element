@@ -460,7 +460,6 @@
 
       // experimental SSR support
       this.store.updateColumns();
-      this.doLayout();
 
       this.resizeState = {
         width: this.width || 0,
