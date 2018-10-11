@@ -297,8 +297,10 @@ TableStore.prototype.mutations = {
       states.reserveSelection = column.reserveSelection;
     }
 
+    // updateColumns is an safe operation for SSR
+    // do it unconditionally to enable SSR-compatibility
+    this.updateColumns(); // hack for dynamics insert column
     if (this.table.$ready) {
-      this.updateColumns(); // hack for dynamics insert column
       this.scheduleLayout();
     }
   },
