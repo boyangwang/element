@@ -17,16 +17,16 @@ then
   node ./build/replace-require.js
 
   # publish theme
-  echo "Releasing theme-chalk $VERSION ..."
-  cd packages/theme-chalk
-  npm version $VERSION --message "[release] $VERSION"
+  # echo "Releasing theme-chalk $VERSION ..."
+  # cd packages/theme-chalk
+  # npm version $VERSION --message "[release] $VERSION"
   # if [[ $VERSION =~ "beta" ]]
   # then
   #   npm publish --access public --tag beta
   # else
   #   npm publish --access public
   # fi
-  cd ../..
+  # cd ../..
 
   # commit
   git add -A
