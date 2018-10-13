@@ -25,7 +25,7 @@
         :border="border"
         :default-sort="defaultSort"
         :style="{
-          width: layout.bodyWidth ? layout.bodyWidth + 'px' : ''
+          width: layout.bodyWidth ? layout.bodyWidth + 'px' : '100%'
         }">
       </table-header>
     </div>
@@ -42,7 +42,7 @@
         :row-style="rowStyle"
         :highlight="highlightCurrentRow"
         :style="{
-           width: bodyWidth
+           width: bodyWidth !== '' ? bodyWidth : '100%'
         }">
       </table-body>
       <div
