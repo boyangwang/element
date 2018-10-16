@@ -15,8 +15,15 @@ const walkSync = (dir, filelist) => {
 };
 
 const filelist = walkSync(path.join(__dirname, '../lib'));
+const extensions = new Set();
 
 for (let file of filelist) {
+  const extension = file.split('.').slice(-1)[0];
+  extensions.add(extension);
+  if (['ttf', 'woff'].includes(extension)) {
+    continue;
+  }
+
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       throw err;
@@ -27,3 +34,5 @@ for (let file of filelist) {
     });
   });
 }
+
+// console.log('Extensions: ', [...extensions.keys()]);
